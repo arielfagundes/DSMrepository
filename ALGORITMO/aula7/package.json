@@ -1,0 +1,19 @@
+{
+  "name": "aula7",
+  "version": "1.0.0",
+  "main": "um.js",
+  "scripts": {
+    "um": "node ./src/um.js",
+    "dois": "node ./src/dois.js",
+    "tres": "node ./src/tres.js",
+    "quatro": "node ./src/quatro.js",
+    "cinco": "node ./src/cinco.js",
+    "seis": "node ./src/seis.js",
+    "sete": "node ./src/sete.js",
+    "oito": "node ./src/oito.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

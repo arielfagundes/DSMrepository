@@ -1,0 +1,88 @@
+EX01
+--------------------------
+SELECT nome AS "curso"  
+FROM tbunidade, tbcurso, tbcurso_por_unidade
+WHERE municipio ILIKE 'Jacare%' AND tbunidade.id = tbcurso_por_unidade.idunidade AND tbcurso.id = tbcurso_por_unidade.idcurso
+ORDER BY "curso" asc;
+
+EX02
+--------------------------
+SELECT tbcurso.nome AS "Curso", tbturno.nome AS "Turno"  
+FROM tbunidade, tbcurso, tbcurso_por_unidade, tbturno
+WHERE municipio ILIKE 'Jacare%' AND tbunidade.id = tbcurso_por_unidade.idunidade AND tbcurso.id = tbcurso_por_unidade.idcurso AND tbturno.id = tbcurso_por_unidade.idturno
+ORDER BY "Curso" asc;
+
+EX03
+--------------------------
+SELECT DISTINCT  tbunidade.unidade AS "Unidade"
+FROM tbunidade, tbcurso, tbcurso_por_unidade AS c
+WHERE tbcurso.nome ILIKE '%Gestão_Financeira%' AND tbunidade.id = c.idunidade AND tbcurso.id = c.idcurso
+ORDER BY Unidade asc;
+
+EX04
+--------------------------
+SELECT DISTINCT tbturno.nome AS "Turno"
+FROM tbcurso, tbturno, tbcurso_por_unidade AS c
+WHERE tbcurso.nome ILIKE '%GESTÃO_FINANCEIRA%' AND tbturno.id = c.idturno AND tbcurso.id = c.idcurso
+ORDER BY "Turno" asc;
+
+EX05
+--------------------------
+SELECT tbturno.nome AS "Turno", COUNT(*) AS "Quantidade"
+FROM tbturno, tbcurso, tbcurso_por_unidade AS c
+WHERE tbturno.id = c.idturno AND tbcurso.id = c.idcurso 
+GROUP BY "Turno"
+ORDER BY "Turno" asc;
+
+EX06
+--------------------------
+SELECT tbturno.nome AS "Turno", SUM(c.vaga) AS "Vagas"
+FROM tbturno, tbcurso_por_unidade AS c
+WHERE tbturno.id = c.idturno  
+GROUP BY "Turno"
+ORDER BY "Turno" asc;
+
+EX07
+--------------------------
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno"
+FROM tbunidade, tbturno,tbcurso, tbcurso_por_unidade AS c
+WHERE tbunidade.id = c.idunidade AND tbturno.id = c.idturno  
+GROUP BY "Unidade", "Turno"
+ORDER BY "Unidade" asc;
+
+EX08
+--------------------------
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Cursos"
+FROM tbcurso_por_unidade AS c
+JOIN tbunidade ON tbunidade.id = c.idunidade 
+JOIN tbturno ON tbturno.id = c.idturno  
+GROUP BY "Unidade", "Turno"
+ORDER BY "Unidade" asc;
+
+EX09
+--------------------------
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Cursos"
+FROM tbcurso_por_unidade AS c
+JOIN tbunidade ON tbunidade.id = c.idunidade 
+JOIN tbturno ON tbturno.id = c.idturno  
+GROUP BY "Unidade", "Turno"
+HAVING COUNT(*) = 5
+ORDER BY "Unidade" asc;
+
+EX10
+--------------------------
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Cursos"
+FROM tbcurso_por_unidade AS c
+JOIN tbunidade ON tbunidade.id = c.idunidade 
+JOIN tbturno ON tbturno.id = c.idturno  
+WHERE tbturno.nome  = 'matutino'
+GROUP BY "Unidade", "Turno"
+HAVING COUNT(*) = 5
+ORDER BY "Unidade" asc;
+
+
+
+
+
+
+

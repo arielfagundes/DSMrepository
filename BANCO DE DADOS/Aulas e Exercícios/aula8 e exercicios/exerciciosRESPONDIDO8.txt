@@ -1,0 +1,98 @@
+Exercício 1
+
+Listar os cursos disponíveis no município de Jacareí, ordenados alfabeticamente. Renomear a coluna para "Curso".
+
+SELECT nome AS "Curso"
+FROM tbunidade, tbcurso, tbcurso_por_unidade
+WHERE tbunidade.unidade LIKE '%Jacareí%'  AND tbunidade.id = tbcurso_por_unidade.idunidade  AND tbcurso.id = tbcurso_por_unidade.idcurso
+ORDER BY "Curso" ASC;
+
+Exercício 2
+
+
+
+Alterar a consulta do Exercício 1 para mostrar o turno de cada curso.
+
+
+
+SELECT tbcurso.nome AS "Curso", tbturno.nome AS "Turno"FROM tbunidade, tbcurso, tbcurso_por_unidade, tbturnoWHERE tbunidade.unidade LIKE '%Jacareí%'  AND tbunidade.id = tbcurso_por_unidade.idunidade  AND tbcurso.id = tbcurso_por_unidade.idcurso  AND tbturno.id = tbcurso_por_unidade.idturnoORDER BY "Curso" ASC;
+
+Exercício 3
+
+
+
+Listar as unidades que possuem o curso de Gestão Financeira, ordenadas alfabeticamente e sem repetições. Renomear a coluna para "Unidade".
+
+
+
+SELECT DISTINCT a.unidade AS "Unidade"FROM tbunidade a, tbcurso b, tbcurso_por_unidade cWHERE b.nome = 'Gestão Financeira'  AND a.id = c.idunidade  AND b.id = c.idcursoORDER BY "Unidade" ASC;
+
+Exercício 4
+
+
+
+Listar os turnos que possuem o curso de Gestão Financeira, ordenados alfabeticamente e sem repetições. Renomear a coluna para "Turno".
+
+
+
+SELECT DISTINCT d.nome AS "Turno"FROM tbunidade a, tbcurso b, tbcurso_por_unidade c, tbturno dWHERE b.nome = 'Gestão Financeira'  AND a.id = c.idunidade  AND b.id = c.idcurso  AND d.id = c.idturnoORDER BY "Turno" ASC;
+
+Exercício 5
+
+
+
+Listar a quantidade de cursos por turno, ordenados alfabeticamente. Renomear as colunas para "Turno" e "Quantidade".
+
+
+
+SELECT tbturno.nome AS "Turno", COUNT(*) AS "Quantidade"FROM tbcurso_por_unidadeJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idGROUP BY tbturno.nomeORDER BY "Turno" ASC;
+
+Exercício 6
+
+
+
+Listar a quantidade de vagas por turno, ordenados alfabeticamente. Renomear as colunas para "Turno" e "Vagas".
+
+
+
+SELECT tbturno.nome AS "Turno", SUM(tbcurso_por_unidade.vaga) AS "Vagas"FROM tbcurso_por_unidadeJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idGROUP BY tbturno.nomeORDER BY "Turno" ASC;
+
+Exercício 7
+
+
+
+Listar os turnos de cada unidade, ordenados alfabeticamente. Renomear as colunas para "Unidade" e "Turno".
+
+
+
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno"FROM tbcurso_por_unidadeJOIN tbunidade ON tbcurso_por_unidade.idunidade = tbunidade.idJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idGROUP BY tbunidade.unidade, tbturno.nomeORDER BY "Unidade" ASC;
+
+Exercício 8
+
+
+
+Alterar a consulta do Exercício 7 para incluir a quantidade de cursos por turno.
+
+
+
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Quantidade"FROM tbcurso_por_unidadeJOIN tbunidade ON tbcurso_por_unidade.idunidade = tbunidade.idJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idGROUP BY tbunidade.unidade, tbturno.nomeORDER BY "Unidade" ASC;
+
+Exercício 9
+
+
+
+Alterar a consulta do Exercício 8 para listar somente os registros que possuem 5 cursos por turno.
+
+
+
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Quantidade"FROM tbcurso_por_unidadeJOIN tbunidade ON tbcurso_por_unidade.idunidade = tbunidade.idJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idGROUP BY tbunidade.unidade, tbturno.nomeHAVING COUNT(*) = 5ORDER BY "Unidade" ASC;
+
+Exercício 10
+
+
+
+Alterar a consulta do Exercício 9 para listar somente os registros do turno matutino.
+
+
+
+SELECT tbunidade.unidade AS "Unidade", tbturno.nome AS "Turno", COUNT(*) AS "Quantidade"FROM tbcurso_por_unidadeJOIN tbunidade ON tbcurso_por_unidade.idunidade = tbunidade.idJOIN tbturno ON tbcurso_por_unidade.idturno = tbturno.idWHERE tbturno.nome = 'Matutino'GROUP BY tbunidade.unidade, tbturno.nomeHAVING COUNT(*) = 5ORDER BY "Unidade" ASC;

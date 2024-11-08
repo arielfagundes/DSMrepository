@@ -1,0 +1,6 @@
+\l ou \list      -> lista todas os bancos de dados existentes
+\c nomeDB        -> muda para o nomeDB escolhido
+\dt              -> lista todas as tabelas do banco conectado
+
+""               -> Para formatar uma string. EX: COUNT(*) AS "Quantidade"
+''               -> Para fazer buscas. EX: WHERE unidade ilike '%aria%'

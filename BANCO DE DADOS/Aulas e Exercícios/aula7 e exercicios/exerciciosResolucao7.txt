@@ -1,0 +1,108 @@
+EX01
+--------------------------
+SELECT unidade AS "Fatec", COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY unidade
+ORDER BY unidade asc;
+
+
+EX02
+--------------------------
+SELECT unidade AS "Fatec", COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY unidade
+ORDER BY "Quantidade" desc;
+
+
+EX03
+--------------------------
+SELECT unidade AS "Fatec", COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY "Fatec"
+ORDER BY "Quantidade" desc
+limit 1;
+
+
+EX04
+--------------------------
+SELECT unidade AS "Fatec", COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY "Fatec"
+ORDER BY "Quantidade" desc
+limit 1
+OFFSET 1;
+
+
+EX05
+--------------------------
+SELECT unidade AS "Fatec", COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY unidade
+HAVING COUNT(*) = 3  ->HAVING não aceita colunas renomeadas
+ORDER BY unidade asc;
+
+
+EX06
+--------------------------
+SELECT 
+   unidade AS "FATEC", turno, COUNT(*) AS "Quantidade"
+FROM 
+   tbcurso
+GROUP BY 
+   unidade, turno
+ORDER BY 
+   unidade asc, turno asc;
+
+
+EX07
+--------------------------
+SELECT unidade AS "FATEC", turno, COUNT(*) AS "Quantidade"
+FROM tbcurso
+GROUP BY unidade, turno
+HAVING COUNT(*) = 5
+ORDER BY unidade asc, turno asc;
+
+
+EX08
+--------------------------
+SELECT 
+   unidade AS "FATEC", turno, COUNT(*) AS "Quantidade"
+FROM 
+   tbcurso
+WHERE
+   unidade ilike '%São_José_Dos_Campos%'
+GROUP BY 
+   unidade, turno                        
+ORDER BY 
+   unidade asc, turno asc;       ->o count(*) mostrará a quantidade de turnos
+
+
+
+EX09
+--------------------------
+SELECT 
+   unidade AS "FATEC", turno, SUM(vaga) AS "Quantidade"
+FROM 
+   tbcurso
+WHERE
+   unidade ilike '%São_José_Dos_Campos%'
+GROUP BY 
+   unidade, turno
+ORDER BY 
+   unidade asc, turno asc;
+
+
+
+EX10
+--------------------------
+SELECT turno, SUM(vaga) AS "Quantidade"
+FROM tbcurso
+GROUP BY turno
+ORDER BY turno asc;
+
+
+
+
+
+
+

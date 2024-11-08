@@ -1,0 +1,20 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+#linhaCadastro, button{
+    font-weight: bold;
+}
+
+#login{
+    border: 2px solid orange;
+    background-image: linear-gradient(to bottom, #9AD662, #39572C, #485137);
+    border-radius: 30px;
+    margin: auto;
+    width: 280px;
+    text-align: center;
+}
+
+table{
+    padding: 0px 10px 0px 50px;
+}

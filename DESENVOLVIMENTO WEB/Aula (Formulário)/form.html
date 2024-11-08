@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    
+</head>
+<body>
+
+<form id="login"> <!-- O action="" direciona pra onde vai o formulário após inscrito-->
+    <div>
+    <table>
+        <tr>
+            <td colspan="2" style="text-align: center;"><p id="escritaLogin">LOGIN</p></td>
+        </tr>
+        <tr>
+            <td><label for="nome">Nome:</label></td>
+            <td><input type="text" id="nome"></td>
+        </tr>   
+        <tr>
+            <td><label for="cidade">Cidade:</label></td>
+            <td><input type="text" value="Jacareí" id="cidade"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="text" id="email"></td>
+        </tr> 
+        <tr>
+            <td><label for="senha">Senha:</label></td>
+            <td><input type="password" id="senha"></td>
+        </tr>
+    </table> 
+    </div>
+    <br>
+    <div>
+    <fieldset style="width: 300px;">
+        <legend>Frutas</legend>
+
+        <input type="radio" id="frutaUm">
+        <label for="frutaUm">Abacaxi</label>
+
+        <input type="radio" id="frutaDois">
+        <label for="frutaDois">Banana</label>
+
+        <input type="radio" id="frutaTres">
+        <label for="frutaTres">Mamão</label>
+    </fieldset>
+    </div>
+    <br>
+    <div>
+    <fieldset style="width: 300px;">
+        <legend>Pratos principais</legend>
+        <input type="checkbox" id="pratoUm">
+        <label for="pratoUm">Frango frito</label>
+        <br>
+        <input type="checkbox" id="pratoDois">
+        <label for="pratoDois">Lasanha</label>
+        <br>
+        <input type="checkbox" id="pratoTres">
+        <label for="pratoTres">Galinha capirira</label>
+    </fieldset>
+    </div>
+    <br>
+        <label for="opiniao">Comentários:</label>
+    <div>
+        <textarea id="opiniao" rows="3" cols="25" maxlength="30" placeholder="Deixe sua opinião...">
+        </textarea>
+    </div>
+
+    <br>
+
+    <button id="button">Entrar</button>
+</form>
+
+
+    
+
+
+</body>
+</html>

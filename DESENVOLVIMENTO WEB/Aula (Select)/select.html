@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Aula sobre o comando SELECT</h1>
+        <h2>Frutas</h2>
+        <label for="fruta">Fruta:</label>
+        <select name="fruta" id="frutas">
+            <option value="Mamao">Mamão</option>
+            <option value="Abacaxi">Abacaxi</option>
+            <option value="Melancia">Melancia</option>
+            <option value="Jaca">Jaca</option>
+        </select>
+        <h2>Verduras</h2>
+        <label for="verduras">Verduras</label>
+        <select name="verduras" id="verduras" multiple size="5">
+            <option value="Brocolis">Brócolis</option>
+            <option value="Cenoura">Cenoura</option>
+            <option value="Alface">Alface</option>
+            <option value="Beterrada">Beterraba</option>
+            <option value="Couve">Couve</option>
+            <option value="Espinafre">Espinafre</option>
+        </select>
+        <br><br><br><br>
+
+        <button type="button" onclick="envio(event)">Enviar</button>
+        <br><br>
+        <div id="answer"></div>
+    </form>
+
+    <script src="select.js"></script>
+
+</body>
+</html>

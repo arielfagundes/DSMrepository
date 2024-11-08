@@ -1,0 +1,47 @@
+EX01
+SELECT * FROM tbfaculdade;
+
+EX02
+SELECT * FROM tbfaculdade
+ORDER BY municipio desc;
+
+EX03
+SELECT * FROM tbfaculdade
+WHERE municipio = 'Jacareí'; ou WHERE municipio ILIKE '%Jacar%';
+
+EX04
+SELECT * FROM tbfaculdade
+WHERE numero is null;
+
+EX05
+SELECT * FROM tbfaculdade
+WHERE municipio ILIKE 'f%';
+
+EX06
+SELECT * FROM tbfaculdade
+WHERE bairro ILIKE '%vila%';
+
+EX07
+SELECT * FROM tbfaculdade
+WHERE cep like '%000';
+
+EX08
+SELECT * FROM tbfaculdade
+WHERE cep like '_5%';
+
+EX09
+SELECT * FROM tbfaculdade
+WHERE cep like '_5%2_';
+
+EX10
+SELECT * FROM tbfaculdade
+WHERE numero NOT LIKE '%-%'
+AND numero NOT ILIKE '%km%'
+AND numero::integer BETWEEN 10 AND 99;
+
+ou
+
+SELECT * FROM tbfaculdade 
+WHERE numero ilike '__';
+
+
