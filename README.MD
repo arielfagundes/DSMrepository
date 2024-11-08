@@ -2,9 +2,7 @@
 
  | Design Digital |
  |----|
-  | [`Atividade 2`](DESIGN%DIGITAL/atividade2l) |
- 
- 
+  | [`Atividade2`](./DSMrepository/DESIGNDIGITAL/atividade2/) |
 
 
 
